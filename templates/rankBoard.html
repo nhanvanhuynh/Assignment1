@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block the_body %}
+
+<table border = '1' width=80% bgcolor="LightGreen">
+{% for k, v in rankBoard_data %}
+<tr>	
+ 	{% if loop.index <= 10 %}
+		<th bgcolor="green" width=10%> {{ loop.index }} </th>
+		<th width=20%> {{ k }} </th>
+		<td align ="Center"> {{ v }} </td>
+	{% endif %}
+   </tr>
+{% endfor %}
+</table>
+
+<form action="{{ rank_Board_url }}" method="POST">
+<BR>
+<p>
+<input type="SUBMIT" name="submit" value="Play">
+<input type="SUBMIT" name="submit" value="Home Screen">
+</p>
+</form>
+
+{% endblock %}

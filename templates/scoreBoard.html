@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block the_body %}
+
+<form action="{{ result_url }}" method="POST">
+
+<b><h3>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</b></h3>
+
+<h4></b>
+{{ rank_failed }}
+<b></h4>
+
+<b><h4>
+{% if rank_data != 0 %}
+<p>Rank : {{ rank_data }}</p>
+{% endif %}
+
+<p>Time : {{ time_data }}</p>
+
+</b></h4>
+
+
+<table border = '1' width=40% bgcolor="LightGreen">
+<tr bgcolor="green">
+<b><h4>
+Word Entered
+</h4></b>
+</tr>
+
+{% for line in list_data %}
+<tr>
+	<th bgcolor="green" width=10%> {{ loop.index }} </th>
+	<td align ="Center" > {{ line }} </td>
+</tr>
+{% endfor %}
+
+</table>
+
+<table border = '1' width=40% bgcolor="LightGreen">
+<tr bgcolor="green">
+<p><b><h4>
+{% if result_data|length != 0 %}
+Invalid Word
+{% endif %}
+</h4></b></p>
+</tr>
+{% for line in result_data %}
+
+<tr>
+	<th bgcolor="green" width=10%> {{ loop.index }} </th>
+	<td align ="Center"> {{ line }} </td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<p>
+<input type="SUBMIT" name="submit" value="Add To Rank">
+Name : 
+<input type="TEXT" name="user_name">
+</p>
+<input type="SUBMIT" name="submit" value="Play Again">
+<input type="SUBMIT" name="submit" value="Home Screen">
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block the_body %}
+
+<p><b><h4>
+Rule : Make up 7 word from a random source word, a word must be <br> more than 2 letters and must be a valid word (Cannot be itself).
+</h4></b></p>
+<p>
+<img src="../static/wordGame.jpeg" width="50%">
+</p>
+Please select from this list of options:
+<ul>
+    <li>Start the game?
+    <li>Show the ranking board?
+</ul>
+
+<form action="{{ play_url }}" method="POST">
+
+<input type="SUBMIT" name="submit" value="Start Game">
+<input type="submit" name="submit" value="Rank Board">
+
+</form>
+{% endblock %}

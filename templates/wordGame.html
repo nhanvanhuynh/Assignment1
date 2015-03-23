@@ -1,0 +1,50 @@
+
+{% extends "base.html" %}
+
+{% block the_body %}
+
+<form action="{{ take_input_url }}" method="POST">
+	
+<b><h3>The word is : </b></h3>
+    {% for line in random_data %}
+
+    {{ line }}
+
+    {% endfor %}
+
+    <p>
+    <b><h3>Please enter a word : </b></h3>
+    <p><input type="TEXT" name="input_value"></p>
+    <p><input type="TEXT" name="input_value2"></p>
+    <p><input type="TEXT" name="input_value3"></p>
+    <p><input type="TEXT" name="input_value4"></p>
+    <p><input type="TEXT" name="input_value5"></p>
+    <p><input type="TEXT" name="input_value6"></p>
+    <p><input type="TEXT" name="input_value7"></p>
+    </p>
+
+    <p>
+    <input type="SUBMIT" name="submit" value="Result">
+    <input type="SUBMIT" name="submit" value="Retry">
+    </p>
+    
+    <br>
+    <p>
+    <input type="SUBMIT" name="submit" value="Home Screen">
+    </p>
+
+<b><h3>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</b></h3>
+
+</form>
+
+{% endblock %}

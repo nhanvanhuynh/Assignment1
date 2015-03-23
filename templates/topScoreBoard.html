@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block the_body %}
+
+<form action="{{ result_url }}" method="POST">
+
+<b><h3><font color="Grey">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</b></h3></font>
+
+<p><b><h3>
+Rank : 123
+</b></h3>
+</p>
+
+<p><b><h3>
+Word Entered :
+</h3></b></p>
+{% for line in list_data %}
+
+{{ line }},
+
+{% endfor %}
+
+<p><b><h3>
+Invalid Word :
+</h3></b></p>
+
+{% for line in result_data %}
+
+{{ line }},
+
+{% endfor %}
+
+
+<p>
+<input type="SUBMIT" name="submit" value="Add To Rank">
+Name : 
+<input type="TEXT" name="user_name">
+</p>
+<input type="SUBMIT" name="submit" value="Play Again">
+<input type="SUBMIT" name="submit" value="Home Screen">
+
+</form>
+
+{% endblock %}
