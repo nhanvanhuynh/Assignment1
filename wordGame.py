@@ -2,6 +2,8 @@ from flask import Flask, render_template, url_for, request, redirect, flash, ses
 from datetime import datetime
 import pickle
 import checkWord,sortBoard,generateRandom,addRankBoard,checkRank
+import os
+import sys
 
 app = Flask(__name__)
 app.config.from_object(__name__)
