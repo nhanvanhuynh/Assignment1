@@ -1,1 +1,1 @@
-web: gunicorn wordGame.wsgi
+web: gunicorn wordGame:app
